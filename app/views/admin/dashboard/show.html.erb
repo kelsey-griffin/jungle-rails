@@ -1,2 +1,12 @@
-<h1>Admin::Dashboard#show</h1>
-<p>Find me in app/views/admin/dashboard/show.html.erb</p>
+<header><h1>Dashboard</h1></header>
+
+<table>
+  <tr>
+    <th><a href="/admin/products">Total Inventory</th>
+    <th><a href="/">Categories</th>
+  </tr>
+  <tr>
+    <td><%= @inventory %></td>
+    <td><%= @categories %></td>
+  </tr>
+</table>
