@@ -13,6 +13,11 @@ class ApplicationController < ActionController::Base
   #   redirect_to '/login' unless current_user
   # end
 
+  def active_sale_info
+    @active_sale_name =  "hello" #Sale.active.select("name")
+    @active_sale_percent =  "hello" #Sale.active.select("percent_off")
+  end
+
   private
 
   def cart
