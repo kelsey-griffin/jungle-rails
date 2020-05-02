@@ -14,8 +14,8 @@ class ApplicationController < ActionController::Base
   # end
 
   def active_sale_info
-    @active_sale_name =  "hello" #Sale.active.select("name")
-    @active_sale_percent =  "hello" #Sale.active.select("percent_off")
+    active_sale_name =  Sale.active[0].name
+    active_sale_percent = Sale.active[0].percent_off
   end
 
   private
