@@ -34,5 +34,24 @@ RSpec.describe User, type: :model do
     end
   end
 
-  
+  describe '.authenticate_with_credentials' do
+    
+    it 'validates email as case insensitive' do
+      subject.save
+
+      user = User.authenticate_with_credentials(subject.email.upcase, subject.password)
+      expect(user).to be_instance_of(User)
+      expect(user.id).to eql(subject.id)
+    end
+
+
+    it 'trims whitespace around email input' do
+      subject.email = "  test@test.com"
+      subject.save
+      
+      user = User.authenticate_with_credentials(subject.email, subject.password)
+      expect(subject.email).to match("test@test.com")
+    end
+  end  
+
 end
