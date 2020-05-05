@@ -8,11 +8,6 @@ class ApplicationController < ActionController::Base
   end
   helper_method :current_user
 
-  #not currently needed, for if we want to secure pages
-  # def authorize
-  #   redirect_to '/login' unless current_user
-  # end
-
   private
 
   def cart
