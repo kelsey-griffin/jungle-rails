@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   def new
+    @login_errors = session[:login_errors]
   end
 
   def create
@@ -8,8 +9,11 @@ class SessionsController < ApplicationController
     
     if user
       session[:user_id] = user.id
+      session[:login_errors] = nil
+
       redirect_to '/'
     else
+      session[:login_errors] = "Couldn't Authenticate Email or Password"
       redirect_to '/login'
     end
   end
