@@ -1,6 +1,12 @@
 
 <h1>Log In</h1>
 
+<% if @login_errors %>
+  <div class="alert alert-danger">
+    <strong> Oops! <%= @login_errors %> </strong>
+  </div>  
+<% end %>
+
 <div class="row">
   <div class="col-sm-6 col-sm-offset-1">
     <%= form_for :user, url: '/login' do |form| %>

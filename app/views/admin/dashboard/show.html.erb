@@ -1,12 +1,13 @@
-<header><h1>Dashboard</h1></header>
+<h1>Admin &raquo; Dashboard</h1>
 
-<table>
-  <tr>
-    <th><a href="/admin/products">Total Inventory</th>
-    <th><a href="/admin/categories">Categories</th>
-  </tr>
-  <tr>
-    <td><%= @inventory %></td>
-    <td><%= @categories %></td>
-  </tr>
-</table>
+<br>
+
+<div class="jumbotron">
+  <p><a href="/admin/products">Total Inventory</a></p>
+  <p><%= @inventory %></p>
+</div>
+
+<div class="order-summary jumbotron">
+  <p><a href="/admin/categories">Categories</a></p>
+  <p><%= @categories %></p>
+</div>

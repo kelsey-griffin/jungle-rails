@@ -1,5 +1,16 @@
 <h1>Sign up!</h1>
 
+<% if @signup_errors %>
+  <div class="alert alert-danger">
+    <strong> Oops! Something looks off here: </strong>
+    <ul> 
+      <% @signup_errors.each do |err| %>
+        <li><%= err %></li> 
+      <% end %>
+    </ul>
+  </div>  
+<% end %>
+
 <div class="row">
   <div class="col-sm-6 col-sm-offset-1">
     <%= form_for :user, url: '/users' do |form| %>

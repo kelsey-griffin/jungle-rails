@@ -8,29 +8,33 @@
 
   <div class="order-summary jumbotron">
     <table table-bordered>
+      <thead>
       <tr>
         <th>Product</th>
         <th>Info</th>
         <th>Quantity</th>
         <th>Subtotal</th>
       </tr>
-      <% @order.line_items.each do |item| %>
-        <tr>
-          <td class="item-image">
-            <%= image_tag Product.find(item.product_id).image.thumb, alt: Product.find(item.product_id).name %>
-          </td>
-          <td class="item-info">
-              <p class= "item-name"><%= Product.find(item.product_id).name %></p>
-              <p class= "item-description"><%= Product.find(item.product_id).description %></p>
-          </td>
-          <td class="item-quantity">
-            <%= item.quantity %>
-          </td>
-          <td class="subtotal">
-            <%= number_to_currency(item.total_price_cents / 100) %>
-          </td>
-        </tr>
-    <% end %>   
+      </thead>
+      <tbody>
+        <% @order.line_items.each do |item| %>
+          <tr>
+            <td class="item-image">
+              <%= image_tag Product.find(item.product_id).image.tiny, alt: Product.find(item.product_id).name %>
+            </td>
+            <td class="item-info">
+                <p class= "item-name"><%= Product.find(item.product_id).name %></p>
+                <p class= "item-description"><%= Product.find(item.product_id).description %></p>
+            </td>
+            <td class="item-quantity">
+              <%= item.quantity %>
+            </td>
+            <td class="subtotal">
+              <%= number_to_currency(item.total_price_cents / 100) %>
+            </td>
+          </tr>
+        <% end %>   
+      </tbody>
     <table>
     
   </div>
